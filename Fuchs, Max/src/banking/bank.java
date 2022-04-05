@@ -23,12 +23,19 @@ public class bank extends Thread
         System.out.println("1: Guthaben aufladen.");
         System.out.println("2: Guthaben abheben.");
         System.out.println("3: Guthaben anzeigen.");
+        System.out.println("4: Neues Konto erstellen.");
         
         switch(scrun.nextInt()){
             case 1:{Zustand = "deposit"; Zustand2 = "KN"; break;
             } case 2:{Zustand = "withdraw"; Zustand2 = "KN"; break;
             } case 3:{Zustand = "balance";  Zustand2 = "KN"; break;
-            } case 4:{ //newKonto(/**füge hier sachen ein du weißt*/);
+            } case 4:{ 
+            	
+            	System.out.println("Bitte ");
+            	
+            	
+            	
+            	//newKonto(/**füge hier sachen ein du weißt*/);
             } default:{System.out.println("Something went wrong: Answer not possible."); Zustand = "ready"; break;}
         }
         if(Zustand2 == "KN"){
@@ -74,7 +81,9 @@ public class bank extends Thread
         if(nummer <= max)  {
             kl[nummer] = new Konto(Kontonummer, PIN, balance);
             nummer++;
-        }
+    }
+            else {System.out.println("Keine Konten mehr frei.");}
+        
     }
     
     public static Konto[]  getkl()
