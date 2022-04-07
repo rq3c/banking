@@ -31,11 +31,12 @@ public class bank extends Thread
             } case 3:{Zustand = "balance";  Zustand2 = "KN"; break;
             } case 4:{ 
             	
-            	System.out.println("Bitte ");
+            	System.out.println("Bitte neue Kontonummer eingeben!");
+            	String KNSave = scrun.next();
+            	System.out.println("Bitte neuen PIN eingeben");
+            	String PSave = scrun.next();
             	
-            	
-            	
-            	//newKonto(/**füge hier sachen ein du weißt*/);
+            	newKonto(KNSave, PSave, 0);
             } default:{System.out.println("Something went wrong: Answer not possible."); Zustand = "ready"; break;}
         }
         if(Zustand2 == "KN"){
