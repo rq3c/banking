@@ -15,6 +15,8 @@ public class bank extends Thread
     {
     	Scanner scrun = new Scanner(System.in);
         
+    	System.out.println("Anzahl von möglichen Konten eingeben:");
+    	Kontos(scrun.nextInt());
     	
         Zustand = "ready";
         Zustand2 = "ready";
@@ -24,6 +26,7 @@ public class bank extends Thread
         System.out.println("2: Guthaben abheben.");
         System.out.println("3: Guthaben anzeigen.");
         System.out.println("4: Neues Konto erstellen.");
+        
         
         switch(scrun.nextInt()){
             case 1:{Zustand = "deposit"; Zustand2 = "KN"; break;
@@ -36,7 +39,7 @@ public class bank extends Thread
             	System.out.println("Bitte neuen PIN eingeben");
             	String PSave = scrun.next();
             	
-            	newKonto(KNSave, PSave, 0);
+            	newKonto(KNSave, PSave, 0); break;
             } default:{System.out.println("Something went wrong: Answer not possible."); Zustand = "ready"; break;}
         }
         if(Zustand2 == "KN"){
@@ -110,20 +113,18 @@ public class bank extends Thread
     public static void enterKontonummer() {
     	Scanner scenterKontonummer = new Scanner(System.in);
     	System.out.println("Kartennummer eingeben:");
-        do{
-            for (int i = 0; i < nummer;)
+        String y = scenterKontonummer.next();
+    	do{
+            for (int i = 0; i < nummer; i++)
         {
-        if(scenterKontonummer.next() == kl[i].kontoNummer)
+        if(y == kl[i].kontoNummer)
         {
             PINSave = kl[i].PIN;
             System.out.println("Kartennummer akzeptiert."); Zustand2 = "PIN";
             break;
         }
-        else if(i < nummer-1)
-        {
-         i++;
         
-        }
+        
         else if(i == nummer+1){
         	System.out.println("Kartennummer falsch! Versuche es erneut oder schreibe 'Abbrechen' um zum Start zurückzukehren");
        
@@ -134,6 +135,7 @@ public class bank extends Thread
         }
        
         }
+            System.out.println("wdh..");
          }while(Zustand2.equals("KN"));	
         
         
