@@ -39,7 +39,11 @@ public class bank extends Thread
             	System.out.println("Bitte neuen PIN eingeben");
             	String PSave = scrun.next();
             	
-            	newKonto(KNSave, PSave, 0); break;
+            	
+            	newKonto(KNSave, PSave, 0);
+            	
+            	//System.out.println(kl[nummer-1]);
+            	break;
             } default:{System.out.println("Something went wrong: Answer not possible."); Zustand = "ready"; break;}
         }
         if(Zustand2 == "KN"){
@@ -92,6 +96,7 @@ public class bank extends Thread
     
     public static Konto[]  getkl()
     {
+    	
     	return kl;
     }    
     
