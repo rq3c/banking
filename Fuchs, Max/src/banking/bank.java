@@ -42,7 +42,7 @@ public class bank extends Thread
             	
             	newKonto(KNSave, PSave, 0);
             	
-            	//System.out.println(kl[nummer-1]);
+            	System.out.println(kl[nummer-1].kontoNummer);
             	break;
             } default:{System.out.println("Something went wrong: Answer not possible."); Zustand = "ready"; break;}
         }
@@ -78,19 +78,21 @@ public class bank extends Thread
     
 
     
-    public static void Kontos(int Konten)
+    public static void Kontos(int anzk)
     {
-        kl= new Konto[Konten];
-        max= Konten;
+        kl= new Konto[anzk];
+        max= anzk;
     }
     
     public static void newKonto(String Kontonummer, String PIN, int balance)
     {
-        if(nummer <= max)  {
-            kl[nummer] = new Konto(Kontonummer, PIN, balance);
-            nummer++;
-    }
-            else {System.out.println("Keine Konten mehr frei.");}
+        	if(nummer <= max)
+        	{
+	        	kl[nummer] = new Konto(Kontonummer, PIN, balance);
+	            nummer++;
+    		}
+            else
+            	System.out.println("Keine Konten mehr frei.");
         
     }
     
@@ -119,8 +121,10 @@ public class bank extends Thread
     	Scanner scenterKontonummer = new Scanner(System.in);
     	System.out.println("Kartennummer eingeben:");
         String y = scenterKontonummer.next();
-    	do{
-            for (int i = 0; i < nummer; i++)
+        System.out.println(y);
+        
+        do{
+            for(int i = 0; i < nummer - 1;)
         {
         if(y == kl[i].kontoNummer)
         {
@@ -130,17 +134,21 @@ public class bank extends Thread
         }
         
         
-        else if(i == nummer+1){
+        else if(i == nummer - 1){
         	System.out.println("Kartennummer falsch! Versuche es erneut oder schreibe 'Abbrechen' um zum Start zurückzukehren");
        
         }
-        else if (scenterKontonummer.next().equals("Abbruch")) {
+        /**else if (scenterKontonummer.next().equals("Abbruch")) {
         	
         	System.out.println("Abbruch..."); Zustand2= "stop"; break;
-        }
+        }**/
        
-        }
+        
+            else {
+            	i++;
             System.out.println("wdh..");
+            }
+        }
          }while(Zustand2.equals("KN"));	
         
         
