@@ -14,10 +14,4 @@ public class Saal
 	{
 		return seats[r][c];
 	}
-	
-	/**public void bookSeat(int r, int c)
-	{
-		seats[r][c] = true;
-	}**/
-	//bookSeats backup
 }

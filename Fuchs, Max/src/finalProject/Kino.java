@@ -10,7 +10,7 @@ public class Kino
 		if(Säle[sNr-1].getSeat(row, column) == false)
 		{
 			Säle[sNr-1].seats[row][column] = true;
-			System.out.println("Seat " + row + ", " + column + " successfully booked");
+			System.out.println("Seat " + row + ", " + column + " in Saal " + sNr + " successfully booked");
 		}
 			
 		else
